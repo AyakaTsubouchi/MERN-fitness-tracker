@@ -12,7 +12,8 @@ const CreateExercise = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users/")
+      .get("'https://fitness-tracker-aya.herokuapp.com/users/")
+      // .get("http://localhost:5000/users/")
       .then((response) => {
         if (response.data.length > 0) {
           setUsers(response.data.map((user) => user.username));
@@ -36,7 +37,7 @@ const CreateExercise = () => {
             date
           };
           axios
-            .post("http://localhost:5000/exercises/add", exercise)
+            .post("'https://fitness-tracker-aya.herokuapp.com/exercises/add", exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>
