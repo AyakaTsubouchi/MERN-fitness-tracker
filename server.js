@@ -1,8 +1,8 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const path = require('path')
+const path = require("path")
 
 require("dotenv").config();
 
@@ -23,8 +23,10 @@ connection.once("open", () => {
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
 
-app.use("/exercises",exercisesRouter);
-app.use("/users",usersRouter);
+// app.use("/exercises",exercisesRouter);
+// app.use("/users",usersRouter);
+app.use("/api/exercises",exercisesRouter);
+app.use("/api/users",usersRouter);
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('client/build'));
