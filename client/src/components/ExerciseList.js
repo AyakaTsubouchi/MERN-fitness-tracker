@@ -7,7 +7,8 @@ const ExerciseList = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API}/exercises/`)
+      // .get(`${process.env.REACT_APP_API}/exercises/`)
+      .get(`http://localhost:5000/exercises/`)
       .then((response) => {
         if (response.data.length > 0) {
           setExercises(response.data);
@@ -19,7 +20,8 @@ const ExerciseList = () => {
   }, []);
 
   const deleteExercise = (id) => {
-    axios.delete(`${process.env.REACT_APP_API}/exercises/${id}`).then((response) => {
+    // axios.delete(`${process.env.REACT_APP_API}/exercises/${id}`).then((response) => {
+    axios.delete(`http://localhost:5000/exercises/${id}`).then((response) => {
       console.log(response.data);
     });
 

@@ -14,7 +14,8 @@ const CreateUser = () => {
               username
             };
             axios
-              .post(`${process.env.REACT_APP_API}/users/add`, user)
+              // .post(`${process.env.REACT_APP_API}/users/add`, user)
+              .post(`http://localhost:5000/users/add`, user)
               .then((res) => console.log(res.data));
             window.location = "/";
           }}>
