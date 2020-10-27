@@ -14,14 +14,12 @@ app.use(bodyParser.json({ extended: false }));
 app.use(cors());
 // app.use(express.json());
 
-const uri = process.env.MONGODB_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
-})
-.then(()=>res.json("success!"))
-.catch(err=>console.log("mongoDB failed"))
+// const uri = process.env.MONGODB_URI;
+// mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//   console.log("MongoDB database connection established successfully");
+// })
 
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
@@ -44,6 +42,17 @@ app.get('/servertest', (req, res) => {
 //   })
 // }
 
-app.listen(port, () => {
-  console.log(`Server is running on port: ${port}`);
-});
+mongoose.set('useCreateIndex', true)
+mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true  })
+    .then(() => {
+        console.log('Connected!');
+        app.listen(port);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
+// app.listen(port, () => {
+//   console.log(`Server is running on port: ${port}`);
+// });
