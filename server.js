@@ -19,13 +19,13 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
-});
+})
+.then(()=>res.json("success!"))
+.catch(err=>console.log("mongoDB failed"))
 
 const exercisesRouter = require('./routes/exercises');
 const usersRouter = require('./routes/users');
 
-// app.use("/exercises",exercisesRouter);
-// app.use("/users",usersRouter);
 app.use("/exercises",exercisesRouter);
 app.use("/users",usersRouter);
 
@@ -35,13 +35,6 @@ app.get('/servertest', (req, res) => {
 });
 
 
-
-let Exercise = require('../models/exercise.model');
-app.get('/mongotest', (req, res) => {
-      Exercise.find()
-      .then((exercises)=>res.json(exercises))
-      .catch(err=>res.status(400).json("Error: "+ err))  
-});
 
 // if(process.env.NODE_ENV === 'production'){
 //   app.use(express.static('client/build'));
