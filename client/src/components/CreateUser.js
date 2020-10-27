@@ -17,7 +17,7 @@ const CreateUser = () => {
               .post(`${process.env.REACT_APP_BACKEND_URL}/users/add`, user)
               // .post(`/users/add`, user)
               .then((res) => console.log(res.data));
-            window.location = "/";
+            // window.location = "/";
           }}>
         
           <div className="form-group">
