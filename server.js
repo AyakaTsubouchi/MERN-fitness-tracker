@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path")
 
+
 require("dotenv").config();
 
 const app = express();
@@ -25,15 +26,21 @@ const usersRouter = require('./routes/users');
 
 // app.use("/exercises",exercisesRouter);
 // app.use("/users",usersRouter);
-app.use("/api/exercises",exercisesRouter);
-app.use("/api/users",usersRouter);
+app.use("/exercises",exercisesRouter);
+app.use("/users",usersRouter);
 
-app.get('/api/passwords', (req, res) => {
-
-  
+app.get('/servertest', (req, res) => {
   res.json("hello~");
-
   console.log(`world`);
+});
+
+
+
+let Exercise = require('../models/exercise.model');
+app.get('/mongotest', (req, res) => {
+      Exercise.find()
+      .then((exercises)=>res.json(exercises))
+      .catch(err=>res.status(400).json("Error: "+ err))  
 });
 
 // if(process.env.NODE_ENV === 'production'){
