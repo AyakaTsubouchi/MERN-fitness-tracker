@@ -14,7 +14,7 @@ const CreateUser = () => {
               username
             };
             axios
-              .post("'https://fitness-tracker-aya.herokuapp.com/users/add", user)
+              .post(`${process.env.REACT_APP_API}/users/add`, user)
               .then((res) => console.log(res.data));
             window.location = "/";
           }}>

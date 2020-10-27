@@ -12,7 +12,7 @@ const CreateExercise = () => {
 
   useEffect(() => {
     axios
-      .get("'https://fitness-tracker-aya.herokuapp.com/users/")
+      .get(`${process.env.REACT_APP_API}/users/`)
       // .get("http://localhost:5000/users/")
       .then((response) => {
         if (response.data.length > 0) {
@@ -37,7 +37,7 @@ const CreateExercise = () => {
             date
           };
           axios
-            .post("'https://fitness-tracker-aya.herokuapp.com/exercises/add", exercise)
+            .post(`${process.env.REACT_APP_API}/exercises/add`, exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>
