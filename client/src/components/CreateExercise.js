@@ -12,7 +12,7 @@ const CreateExercise = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API}/users/`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/users/`)
       // .get("/users/")
 
       .then((response) => {

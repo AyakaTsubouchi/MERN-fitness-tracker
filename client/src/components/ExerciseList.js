@@ -20,8 +20,8 @@ const ExerciseList = () => {
   }, []);
 
   const deleteExercise = (id) => {
-    // axios.delete(`${process.env.REACT_APP_API}/exercises/${id}`).then((response) => {
-    axios.delete(`/exercises/${id}`).then((response) => {
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`).then((response) => {
+    // axios.delete(`/exercises/${id}`).then((response) => {
       console.log(response.data);
     });
 

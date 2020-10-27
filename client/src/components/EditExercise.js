@@ -13,8 +13,8 @@ const EditExercise = ({ match }) => {
 
   useEffect(() => {
     axios
-      // .get(`${process.env.REACT_APP_API}/exercises/${match.params.id}`)
-      .get(`/exercises/${match.params.id}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/${match.params.id}`)
+      // .get(`/exercises/${match.params.id}`)
       .then((response) => {
         setUsername(response.data.username);
         setDescription(response.data.description);
@@ -26,8 +26,8 @@ const EditExercise = ({ match }) => {
       });
 
     axios
-      // .get(`${process.env.REACT_APP_API}/users/`)
-      .get(`/users/`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/users/`)
+      // .get(`/users/`)
       .then((response) => {
         if (response.data.length > 0) {
           setUsers(response.data.map((user) => user.username));
@@ -52,8 +52,8 @@ const EditExercise = ({ match }) => {
             date,
           };
           axios
-            // .post(`${process.env.REACT_APP_API}/exercises/add`, exercise)
-            .post(`/exercises/add`, exercise)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/add`, exercise)
+            // .post(`/exercises/add`, exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>
