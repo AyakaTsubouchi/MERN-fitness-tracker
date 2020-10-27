@@ -6,6 +6,9 @@ router.route("/").get((req,res)=>{
     .then((exercises)=>res.json(exercises))
     .catch(err=>res.status(400).json("Error: "+ err))
 })
+router.route("/test").get((req,res)=>{
+   res.json("Hi! I'm test")
+})
 
 router.route("/add").post((req,res)=>{
     const username = req.body.username
