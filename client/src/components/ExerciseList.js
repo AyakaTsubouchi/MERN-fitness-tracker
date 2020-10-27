@@ -7,8 +7,8 @@ const ExerciseList = () => {
 
   useEffect(() => {
     axios
-      // .get(`${process.env.REACT_APP_API}/exercises/`)
-      .get(`/exercises/`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
+      // .get(`/exercises/`)
       .then((response) => {
         if (response.data.length > 0) {
           setExercises(response.data);
