@@ -42,15 +42,15 @@ app.get('/servertest', (req, res) => {
 //   })
 // }
 
-mongoose.set('useCreateIndex', true)
-mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true  })
-    .then(() => {
-        console.log('Connected!');
-        app.listen(port);
-    })
-    .catch(err => {
-        console.log(err);
-    });
+// mongoose.set('useCreateIndex', true)
+// mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true  })
+//     .then(() => {
+//         console.log('Connected!');
+//         app.listen(port);
+//     })
+//     .catch(err => {
+//         console.log(err);
+//     });
 
 
 // app.listen(port, () => {
