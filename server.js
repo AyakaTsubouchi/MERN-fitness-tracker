@@ -28,13 +28,21 @@ const usersRouter = require('./routes/users');
 app.use("/api/exercises",exercisesRouter);
 app.use("/api/users",usersRouter);
 
-if(process.env.NODE_ENV === 'production'){
-  app.use(express.static('client/build'));
+app.get('/api/passwords', (req, res) => {
+
   
-  app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'client','build','index.html'));
-  })
-}
+  res.json("hello~");
+
+  console.log(`world`);
+});
+
+// if(process.env.NODE_ENV === 'production'){
+//   app.use(express.static('client/build'));
+  
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'client','build','index.html'));
+//   })
+// }
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
