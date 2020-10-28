@@ -6,17 +6,28 @@ const ExerciseList = () => {
   const [exercises, setExercises] = useState();
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
-      // .get(`/exercises/`)
-      .then((response) => {
-        if (response.data.length > 0) {
-          setExercises(response.data);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios
+    //   .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
+    //   // .get(`/exercises/`)
+    //   .then((response) => {
+    //     if (response.data.length > 0) {
+    //       setExercises(response.data);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+    
+    fetch('/exercises/')
+    .then(res => res.json())
+    .then(res => {
+      if (res.data.length > 0) {
+              setExercises(res.data);
+            }
+    })
+    .catch((error) => {
+          console.log(error);
+        });
   }, []);
 
   const deleteExercise = (id) => {
