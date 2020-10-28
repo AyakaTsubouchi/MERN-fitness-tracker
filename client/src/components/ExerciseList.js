@@ -24,7 +24,7 @@ const ExerciseList = () => {
     .then(res => {
       console.log("exercises",res)
       if (res.length > 0) {
-              setExercises(res.data);
+              setExercises(res);
             }
     })
     .catch((error) => {
