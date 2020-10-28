@@ -8,7 +8,6 @@ const ExerciseList = () => {
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
-      // .get(`https://fitness-tracker-aya.herokuapp.com/exercises/`)
       .then((response) => {
         console.log(response.data)
         if (response.data.length > 0) {
@@ -22,8 +21,7 @@ const ExerciseList = () => {
 
   const deleteExercise = (id) => {
     axios
-      // .delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`)
-      .delete(`https://fitness-tracker-aya.herokuapp.com/exercises/${id}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`)
       .then((response) => {
           console.log(response.data);
         setExercises(exercises.filter((el) => el._id !== id));
