@@ -23,7 +23,7 @@ const ExerciseList = () => {
     .then(res => res.json())
     .then(res => {
       console.log("exercises",res)
-      if (res.data.length > 0) {
+      if (res.length > 0) {
               setExercises(res.data);
             }
     })
