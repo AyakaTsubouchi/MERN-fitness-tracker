@@ -18,7 +18,8 @@ const ExerciseList = () => {
     //     console.log(error);
     //   });
     
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
+    // fetch(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
+    fetch(`https://fitness-tracker-aya.herokuapp.com/exercises/`)
     .then(res => res.json())
     .then(res => {
       console.log("exercises",res)
