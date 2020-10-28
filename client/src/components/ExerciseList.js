@@ -11,11 +11,8 @@ const ExerciseList = () => {
       .get(`https://fitness-tracker-aya.herokuapp.com/exercises/`)
       .then((response) => {
         console.log(response)
-        // if (response.data.length > 0) {
-          if (response.length > 0) {
-          // setExercises(response.data);
-          setExercises(response);
-        
+        if (response.data.length > 0) {
+          setExercises(response.data);
         }
       })
       .catch((error) => {
@@ -38,10 +35,11 @@ const ExerciseList = () => {
 
   const deleteExercise = (id) => {
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`)
+      // .delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`)
+      .delete(`https://fitness-tracker-aya.herokuapp.com/exercises/${id}`)
       .then((response) => {
         // axios.delete(`/exercises/${id}`).then((response) => {
-        //   console.log(response.data);
+          console.log(response.data);
         // });
 
         setExercises(exercises.filter((el) => el._id !== id));
