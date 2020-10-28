@@ -18,7 +18,7 @@ const ExerciseList = () => {
     //     console.log(error);
     //   });
     
-    fetch('/exercises/')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
     .then(res => res.json())
     .then(res => {
       if (res.data.length > 0) {
