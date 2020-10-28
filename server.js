@@ -47,6 +47,7 @@ mongoose.connect(process.env.MONGODB_URL,{ useNewUrlParser: true, useUnifiedTopo
     .then(() => {
         console.log('Connected!');
         app.listen(port);
+        console.log(`Server is running on port: ${port}`);
         
     })
     .catch(err => {
