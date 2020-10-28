@@ -21,6 +21,7 @@ const ExerciseList = () => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
     .then(res => res.json())
     .then(res => {
+      console.log("exercises",res)
       if (res.data.length > 0) {
               setExercises(res.data);
             }
