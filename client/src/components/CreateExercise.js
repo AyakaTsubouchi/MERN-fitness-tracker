@@ -36,7 +36,7 @@ const CreateExercise = () => {
             date
           };
           axios
-            .post(`${process.env.REACT_APP_API}/exercises/add`, exercise)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/add`, exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>

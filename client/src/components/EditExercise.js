@@ -50,7 +50,7 @@ const EditExercise = ({ match }) => {
             date,
           };
           axios
-            .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/add`, exercise)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/update/${match.params.id}`, exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>
