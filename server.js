@@ -14,7 +14,7 @@ app.use(bodyParser.json({ extended: false }));
 app.use(cors());
 // app.use(express.json());
 
-// const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URL;
 // mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 // const connection = mongoose.connection;
 // connection.once("open", () => {
@@ -34,19 +34,20 @@ app.get('/servertest', (req, res) => {
 
 
 
-// if(process.env.NODE_ENV === 'production'){
-//   app.use(express.static('client/build'));
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/build'));
   
-//   app.get('*',(req,res)=>{
-//     res.sendFile(path.join(__dirname,'client','build','index.html'));
-//   })
-// }
+  app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'client','build','index.html'));
+  })
+}
 
 mongoose.set('useCreateIndex', true)
 mongoose.connect(process.env.MONGODB_URL,{ useNewUrlParser: true, useUnifiedTopology: true  })
     .then(() => {
         console.log('Connected!');
         app.listen(port);
+        
     })
     .catch(err => {
         console.log(err);
