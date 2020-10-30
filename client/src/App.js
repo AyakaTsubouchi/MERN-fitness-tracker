@@ -6,6 +6,7 @@ import ExerciseList from "./components/ExerciseList";
 import EditExercise from "./components/EditExercise";
 import CreateExercise from "./components/CreateExercise";
 import CreateUser from "./components/CreateUser";
+import "./App.css"
 
 function App() {
   return (

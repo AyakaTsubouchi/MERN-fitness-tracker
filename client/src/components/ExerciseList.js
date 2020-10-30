@@ -37,8 +37,8 @@ const ExerciseList = () => {
             <th>Username</th>
             <th>Description</th>
             <th>Duration</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th className="hidden-less-than-mb">Date</th>
+            <th className="hidden-less-than-mb">Actions</th>
           </tr>
         </thead>
         <tbody>
