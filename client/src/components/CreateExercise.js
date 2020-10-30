@@ -13,7 +13,7 @@ const CreateExercise = () => {
   useEffect(() => {
     axios
       // .get(`${process.env.REACT_APP_BACKEND_URL}/users/`)
-      .get(`https://fitness-tracker-aya.herokuapp.com/users/`)
+      .get('/users/')
       .then((response) => {
         if (response.data.length > 0) {
           setUsers(response.data.map((user) => user.username));
@@ -38,7 +38,7 @@ const CreateExercise = () => {
           };
           axios
             // .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/add`, exercise)
-            .post(`https://fitness-tracker-aya.herokuapp.com/exercises/add`, exercise)
+            .post('/exercises/add', exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>

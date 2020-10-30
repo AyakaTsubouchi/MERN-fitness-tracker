@@ -14,7 +14,7 @@ const EditExercise = ({ match }) => {
   useEffect(() => {
     axios
       // .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/${match.params.id}`)
-      .get(`https://fitness-tracker-aya.herokuapp.com/exercises/${match.params.id}`)
+      .get(`/exercises/${match.params.id}`)
       .then((response) => {
         setUsername(response.data.username);
         setDescription(response.data.description);
@@ -27,7 +27,7 @@ const EditExercise = ({ match }) => {
 
     axios
       // .get(`${process.env.REACT_APP_BACKEND_URL}/users/`)
-      .get(`https://fitness-tracker-aya.herokuapp.com/users/`)
+      .get('/users/')
       .then((response) => {
         if (response.data.length > 0) {
           setUsers(response.data.map((user) => user.username));
@@ -53,7 +53,7 @@ const EditExercise = ({ match }) => {
           };
           axios
             // .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/update/${match.params.id}`, exercise)
-            .post(`https://fitness-tracker-aya.herokuapp.com/exercises/update/${match.params.id}`, exercise)
+            .post('/exercises/update/' + match.params.id, exercise)
             .then((res) => console.log(res.data));
           window.location = "/";
         }}>
