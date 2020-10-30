@@ -12,7 +12,6 @@ const CreateExercise = () => {
 
   useEffect(() => {
     axios
-      // .get(`${process.env.REACT_APP_BACKEND_URL}/users/`)
       .get('/users/')
       .then((response) => {
         if (response.data.length > 0) {
@@ -37,7 +36,6 @@ const CreateExercise = () => {
             date
           };
           axios
-            // .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/add`, exercise)
             .post('/exercises/add', exercise)
             .then((res) => console.log(res.data));
           window.location = "/";

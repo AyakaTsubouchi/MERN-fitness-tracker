@@ -13,7 +13,6 @@ const EditExercise = ({ match }) => {
 
   useEffect(() => {
     axios
-      // .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/${match.params.id}`)
       .get(`/exercises/${match.params.id}`)
       .then((response) => {
         setUsername(response.data.username);
@@ -26,7 +25,6 @@ const EditExercise = ({ match }) => {
       });
 
     axios
-      // .get(`${process.env.REACT_APP_BACKEND_URL}/users/`)
       .get('/users/')
       .then((response) => {
         if (response.data.length > 0) {
@@ -52,7 +50,6 @@ const EditExercise = ({ match }) => {
             date,
           };
           axios
-            // .post(`${process.env.REACT_APP_BACKEND_URL}/exercises/update/${match.params.id}`, exercise)
             .post('/exercises/update/' + match.params.id, exercise)
             .then((res) => console.log(res.data));
           window.location = "/";

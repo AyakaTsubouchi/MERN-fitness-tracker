@@ -15,7 +15,6 @@ const CreateUser = () => {
             };
             axios
               .post('/users/add', user)
-              // .post(`${process.env.REACT_APP_BACKEND_URL}/users/add`, user)
               .then((res) => console.log(res.data));
             window.location = "/";
           }}>
