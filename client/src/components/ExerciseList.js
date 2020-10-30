@@ -22,7 +22,8 @@ const ExerciseList = () => {
 
   const deleteExercise = (id) => {
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`)
+      // .delete(`${process.env.REACT_APP_BACKEND_URL}/exercises/${id}`)
+      .delete(`https://fitness-tracker-aya.herokuapp.com/exercises/${id}`)
       .then((response) => {
           console.log(response.data);
         setExercises(exercises.filter((el) => el._id !== id));
