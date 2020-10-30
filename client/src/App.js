@@ -10,7 +10,7 @@ import CreateUser from "./components/CreateUser";
 function App() {
   return (
     <Router>
-        <Navbar />
+        {/* <Navbar /> */}
       <div className="container">
         <br />
         <Route path="/" exact component={ExerciseList} />
