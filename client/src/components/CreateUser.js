@@ -31,14 +31,11 @@ const CreateUser = () => {
               }}
             />
           </div>
-         
-          
-  
           <div className="form-group">
             <input
               type="submit"
               value="Submit"
-              className="btn btn-primary"
+              className="btn btn-info"
             />
           </div>
         </form>

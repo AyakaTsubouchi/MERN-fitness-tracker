@@ -93,7 +93,7 @@ const CreateExercise = () => {
           <input
             type="submit"
             value="Create Exercise Log"
-            className="btn btn-primary"
+            className="btn btn-info"
           />
         </div>
       </form>
