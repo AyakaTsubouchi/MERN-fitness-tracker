@@ -7,7 +7,7 @@ const ExerciseList = () => {
 
   useEffect(() => {
     axios
-      .get(`/exercises/`)
+      .get('/exercises/')
       // .get(`${process.env.REACT_APP_BACKEND_URL}/exercises/`)
       // .get(`https://fitness-tracker-aya.herokuapp.com/exercises/`)
       .then((response) => {
