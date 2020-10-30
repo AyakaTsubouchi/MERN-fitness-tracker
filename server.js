@@ -17,20 +17,14 @@ const usersRouter = require("./routes/users");
 app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
 
-let Exercise = require("../models/exercise.model");
-app.get('/exercises', (req, res) => {
-  Exercise.find()
-      .then((exercises) => res.json(exercises))
-      .catch((err) => res.status(400).json("Error: " + err));
-});
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-  });
-}
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+//   });
+// }
 
 mongoose.set("useCreateIndex", true);
 mongoose
