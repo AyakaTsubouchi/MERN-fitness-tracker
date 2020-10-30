@@ -48,8 +48,8 @@ const ExerciseList = () => {
                 <td>{exercise.username}</td>
                 <td>{exercise.description}</td>
                 <td>{exercise.duration}</td>
-                <td>{exercise.date.substring(0, 10)}</td>
-                <td>
+                <td className="hidden-less-than-mb">{exercise.date.substring(0, 10)}</td>
+                <td className="hidden-less-than-mb">
                   <Link to={"/edit/" + exercise._id}>Edit</Link> |{" "}
                   <a
                     href="#"
